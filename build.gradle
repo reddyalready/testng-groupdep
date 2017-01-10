@@ -1,0 +1,24 @@
+apply plugin: "java"
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.testng:testng:6.10'
+}
+
+test {
+    useTestNG() {
+        suites 'testng.xml'
+    }
+
+    //Add exception logging so we can see failure causes remotely
+    testLogging {
+        showExceptions true
+        exceptionFormat "full"
+        showCauses true
+        showStackTraces true
+        showStandardStreams true
+    }
+}
